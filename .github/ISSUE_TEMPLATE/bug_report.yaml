@@ -1,0 +1,87 @@
+name: Bug Issue Form
+description: Use this form to report a new bug.
+title: "[Bug]: [Short Description of Issue]"
+labels: ["bug"]
+
+body:
+  - type: markdown
+    id: description
+    attributes:
+      label: Description
+      value: |
+        Please provide a clear and concise description of what the issue is.
+
+  - type: markdown
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      value: |
+        ### Steps to Reproduce:
+        1. [First Step]
+        2. [Second Step]
+        3. [and so on...]
+
+  - type: markdown
+    id: actual_behavior
+    attributes:
+      value: |
+        ### Actual Behavior:
+        [What actually happened]
+
+  - type: markdown
+    id: expected_behavior
+    attributes:
+      value: |
+        ### Expected Behavior:
+        [What you expected to happen]
+
+  - type: markdown
+    id: screenshots
+    attributes:
+      label: Screenshots
+      value: |
+        If applicable, add screenshots to help explain your problem.
+
+  - type: dropdown
+    id: operating_system
+    attributes:
+      label: What operating system are you using?
+      multiple: false
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+
+  # if the issue type is a question, show the following fields
+  - type: markdown
+    id: question
+    attributes:
+      show_when:
+        issue_type: Question
+    elements:
+      label: Question
+      value: |
+        Please provide a clear and concise question.
+
+  # if the issue type is other, show the following fields
+  - type: markdown
+    id: other
+    attributes:
+      show_when:
+        issue_type: Other
+    elements:
+      label: Other
+      value: |
+        Please provide a clear and concise description of the issue.
