@@ -1,0 +1,57 @@
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    jetic.io/deployment.uuid: "e8cdda5a-1c71-40af-8258-41a44ac9199a"
+    jetic.io/integration.name: "LoggerTest"
+    jetic.io/integration.revision: "1"
+    jetic.io/integration.uuid: "aa2e8b8c-0e50-40be-af51-312e7f081de3"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "false"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "1015e2bb-6805-4118-8460-9262ee5ef0a4"
+  name: "loggertest"
+spec:
+  configuration:
+  - type: "property"
+    value: "quarkus.log.console.color=true"
+  - type: "property"
+    value: "quarkus.log.console.level=INFO"
+  dependencies: []
+  replicas: 1
+  resources: []
+  sources:
+  - compression: false
+    content: |+
+      //
+      // To run this integration use:
+      //
+      // kamel run LoggerTest.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=LoggerTest
+
+    name: "LoggerTest.groovy"
+  traits:
+    jolokia:
+      configuration:
+        enabled: true
+    logging:
+      configuration:
+        enabled: true
+        level: "DEBUG"
+    owner:
+      configuration:
+        enabled: true
+        targetLabels:
+        - "jetic.io/data.analyzer"
+        - "jetic.io/deployment.uuid"
+        - "jetic.io/integration.name"
+        - "jetic.io/integration.revision"
+        - "jetic.io/integration.uuid"
+        - "jetic.io/log.level"
+        - "jetic.io/open.api.host"
+        - "jetic.io/profile.name"
+        - "jetic.io/profile.uuid"

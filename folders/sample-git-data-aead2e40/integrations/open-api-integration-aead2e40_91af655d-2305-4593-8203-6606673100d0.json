@@ -1,14 +1,14 @@
 {
-  "revision" : 1,
+  "revision" : 4,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
   "openApiUuid" : "5add38b4-7a18-411f-9142-93f6ee57f6e3",
-  "currentProfileUuid" : null,
+  "currentProfileUuid" : "1015e2bb-6805-4118-8460-9262ee5ef0a4",
   "parameterGroupUuids" : [ ],
   "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
-    "id" : null,
+    "id" : 1,
     "camelRouteId" : "open-api-integration",
     "enabled" : true,
     "routeId" : 1,
@@ -17,11 +17,16 @@
       "nodeId" : "restApi: GET request",
       "description" : "GET request",
       "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
         "consumes" : "application/json",
         "endpoint" : "/api/v1/test",
+        "name" : "getRequest",
         "operationName" : "default",
         "produces" : "application/json",
-        "requestmethod" : "GET"
+        "requestmethod" : "GET",
+        "url" : ""
       },
       "_type" : "restApi",
       "isNotActive" : false
@@ -30,8 +35,16 @@
       "nodeId" : "setBody: add hello json to body",
       "description" : "add hello json to body",
       "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core feature",
         "expression" : "{\"message\": \"hello from open-api-aead2e40\", \"exchangeId\": \"${exchangeId}\"}",
-        "language" : "Simple"
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
       },
       "_type" : "setBody",
       "isNotActive" : false
@@ -40,10 +53,26 @@
       "nodeId" : "log: EIP log",
       "description" : "EIP log",
       "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core feature",
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "headers: ${headers}; body: ${body}"
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "log",
       "isNotActive" : false
@@ -60,7 +89,7 @@
   "name" : "open-api-integration-aead2e40",
   "description" : "Simple integration with an open-api example",
   "createdAt" : "2024-02-23T17:05:59.389251536",
-  "updatedAt" : "2024-02-23T17:05:59.389251936",
+  "updatedAt" : "2024-05-09T12:35:29.297887118",
   "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
   "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
 }

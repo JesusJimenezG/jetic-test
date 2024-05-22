@@ -1,10 +1,10 @@
 {
-  "revision" : 7,
+  "revision" : 10,
   "compression" : false,
   "dataAnalyzer" : false,
   "replicas" : 1,
   "openApiUuid" : null,
-  "currentProfileUuid" : "8724cbca-4835-46e5-ad57-752c964179da",
+  "currentProfileUuid" : "1015e2bb-6805-4118-8460-9262ee5ef0a4",
   "parameterGroupUuids" : [ ],
   "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
@@ -193,7 +193,7 @@
   "name" : "simple-integration-aead2e40",
   "description" : "Simple integration with the timer-body-log example",
   "createdAt" : "2024-02-23T17:05:55.850855728",
-  "updatedAt" : "2024-03-11T09:21:14.5613283",
+  "updatedAt" : "2024-05-09T12:42:52.257715926",
   "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
   "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
 }
