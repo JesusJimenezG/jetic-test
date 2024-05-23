@@ -1,0 +1,65 @@
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    jetic.io/deployment.uuid: "dd29b71e-3a58-4bd9-a1ee-82139ba63faa"
+    jetic.io/integration.name: "mapping-integration-31d8d480"
+    jetic.io/integration.revision: "1"
+    jetic.io/integration.uuid: "4fe94ab4-6125-4db0-9fbd-e62d1733c83a"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "false"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "6bb2e3e3-9d2a-4353-837c-05a0a8a5adc6"
+  name: "mapping-integration-31d8d480"
+spec:
+  configuration:
+  - type: "property"
+    value: "quarkus.log.console.color=true"
+  - type: "property"
+    value: "quarkus.log.console.level=INFO"
+  dependencies: []
+  replicas: 1
+  resources: []
+  sources:
+  - compression: false
+    content: |-
+      //
+      // To run this integration use:
+      //
+      // kamel run mapping_integration_31d8d480.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=mapping-integration-31d8d480
+
+      import org.apache.camel.LoggingLevel
+
+      from('timer:timer?daemon=true&delay=1000&fixedRate=false&period=1000&repeatCount=0').routeId('mapping-integration')
+          .setProperty('in-157a8c87-6002-48a7-a20d-de95588e2bd9').constant('{"apiVersion":"camel.apache.org/v1","kind":"Integration"}').id('setProperties: set 2 input json bodies-00')
+          .setProperty('test-315aac82-fc63-441f-94e7-ae674d4fb382').constant('{"test":"was successfully mapped!"}').id('setProperties: set 2 input json bodies-01')
+          .log(LoggingLevel.INFO, 'log', 'input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}').id('log: 00')
+          .to('atlasmap:cloud-mapping.adm?allowContextMapAll=false&contentCache=false&lazyStartProducer=false&targetMapMode=MAP').id('atlasmap: map jsons to xml')
+          .log(LoggingLevel.INFO, 'log', 'output xml: ${body}').id('log: 01')
+    name: "mapping-integration-31d8d480.groovy"
+  traits:
+    jolokia:
+      configuration:
+        enabled: true
+    logging:
+      configuration:
+        enabled: true
+        level: "DEBUG"
+    owner:
+      configuration:
+        enabled: true
+        targetLabels:
+        - "jetic.io/data.analyzer"
+        - "jetic.io/deployment.uuid"
+        - "jetic.io/integration.name"
+        - "jetic.io/integration.revision"
+        - "jetic.io/integration.uuid"
+        - "jetic.io/log.level"
+        - "jetic.io/open.api.host"
+        - "jetic.io/profile.name"
+        - "jetic.io/profile.uuid"

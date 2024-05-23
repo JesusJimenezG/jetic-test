@@ -1,0 +1,66 @@
+{
+  "revision" : 1,
+  "compression" : false,
+  "dataAnalyzer" : false,
+  "replicas" : 1,
+  "openApiUuid" : "20679c86-d95d-4400-bbf8-1e31efa6237c",
+  "currentProfileUuid" : null,
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "open-api-integration",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "getRequest",
+      "nodeId" : "restApi: GET request",
+      "description" : "GET request",
+      "properties" : {
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/test",
+        "operationName" : "default",
+        "produces" : "application/json",
+        "requestmethod" : "GET"
+      },
+      "_type" : "restApi",
+      "isNotActive" : false
+    }, {
+      "name" : "setBody",
+      "nodeId" : "setBody: add hello json to body",
+      "description" : "add hello json to body",
+      "properties" : {
+        "expression" : "{\"message\": \"hello from open-api-31d8d480\", \"exchangeId\": \"${exchangeId}\"}",
+        "language" : "Simple"
+      },
+      "_type" : "setBody",
+      "isNotActive" : false
+    }, {
+      "name" : "log",
+      "nodeId" : "log: EIP log",
+      "description" : "EIP log",
+      "properties" : {
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}"
+      },
+      "_type" : "log",
+      "isNotActive" : false
+    } ]
+  } ],
+  "traits" : [ {
+    "name" : "ingress",
+    "configuration" : {
+      "enabled" : true,
+      "host" : "31d8d480.ingress.jetic.dev"
+    }
+  } ],
+  "id" : "42524c9d-51ba-4304-beed-b7c234ac197e",
+  "name" : "open-api-integration-31d8d480",
+  "description" : "Simple integration with an open-api example",
+  "createdAt" : "2024-05-23T13:53:09.2799315",
+  "updatedAt" : "2024-05-23T13:53:09.2799315",
+  "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
+  "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
+}
