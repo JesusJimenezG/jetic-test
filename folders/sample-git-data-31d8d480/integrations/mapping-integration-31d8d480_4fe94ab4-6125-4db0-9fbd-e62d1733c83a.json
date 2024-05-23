@@ -4,11 +4,11 @@
   "dataAnalyzer" : false,
   "replicas" : 1,
   "openApiUuid" : null,
-  "currentProfileUuid" : null,
+  "currentProfileUuid" : "6bb2e3e3-9d2a-4353-837c-05a0a8a5adc6",
   "parameterGroupUuids" : [ ],
   "repoResourceUuids" : [ "3602e50d-43a7-4abc-9a40-e456f96db608" ],
   "routeDefinitions" : [ {
-    "id" : null,
+    "id" : 1,
     "camelRouteId" : "mapping-integration",
     "enabled" : true,
     "routeId" : 1,
@@ -17,14 +17,20 @@
       "nodeId" : "timer: once per second",
       "description" : "once per second",
       "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "scheduled trigger",
         "daemon" : true,
         "delay" : "1000",
         "fixedRate" : false,
+        "name" : "timer",
         "period" : "1000",
         "repeatCount" : "0",
         "setScheduleTime" : false,
         "time" : "2021-12-31 00:00:00",
-        "timerName" : "timer"
+        "timerName" : "timer",
+        "url" : ""
       },
       "_type" : "timer",
       "isNotActive" : false
@@ -33,6 +39,12 @@
       "nodeId" : "setProperties: set 2 input json bodies",
       "description" : "set 2 input json bodies",
       "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core feature",
+        "name" : "setProperties",
+        "namespaces" : [ ],
         "propertyList" : [ {
           "language" : "Constant",
           "propertyName" : "in-157a8c87-6002-48a7-a20d-de95588e2bd9",
@@ -41,7 +53,9 @@
           "language" : "Constant",
           "propertyName" : "test-315aac82-fc63-441f-94e7-ae674d4fb382",
           "propertyValue" : "{\"test\":\"was successfully mapped!\"}"
-        } ]
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
       },
       "_type" : "setProperties",
       "isNotActive" : false
@@ -50,10 +64,26 @@
       "nodeId" : "log: 00",
       "description" : "log input jsons",
       "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core feature",
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}"
+        "message" : "input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "log",
       "isNotActive" : false
@@ -62,13 +92,20 @@
       "nodeId" : "atlasmap: map jsons to xml",
       "description" : "map jsons to xml",
       "properties" : {
+        "_type" : "atlasmap",
+        "active" : true,
+        "advancedParameters" : [ ],
         "allowContextMapAll" : false,
+        "camelGroup" : "data processing connector",
         "contentCache" : false,
         "lazyStartProducer" : false,
+        "name" : "atlasmap",
         "resourceUri" : "cloud-mapping.adm",
         "sourceMapName" : "",
         "targetMapMode" : "MAP",
-        "targetMapName" : ""
+        "targetMapName" : "",
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "atlasmap",
       "isNotActive" : false
@@ -77,10 +114,26 @@
       "nodeId" : "log: 01",
       "description" : "log output xml",
       "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core feature",
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "output xml: ${body}"
+        "message" : "output xml: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "log",
       "isNotActive" : false
@@ -90,6 +143,10 @@
   "id" : "4fe94ab4-6125-4db0-9fbd-e62d1733c83a",
   "name" : "mapping-integration-31d8d480",
   "description" : "Mapping integration from json to xml",
+  "absolutePath" : "/var/git-jetic/dd06abe8-2cbf-4c25-8cb6-d438132c1e3a/990395e3-dab3-4d10-b4f5-c87c52db60c4/folders/sample-git-data-31d8d480/integrations/mapping-integration-31d8d480_4fe94ab4-6125-4db0-9fbd-e62d1733c83a.json",
+  "fileName" : "mapping-integration-31d8d480_4fe94ab4-6125-4db0-9fbd-e62d1733c83a.json",
+  "folderName" : "sample-git-data-31d8d480",
+  "repoUuid" : "990395e3-dab3-4d10-b4f5-c87c52db60c4",
   "createdAt" : "2024-05-23T13:53:14.2973109",
   "updatedAt" : "2024-05-23T13:53:22.3657629",
   "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",

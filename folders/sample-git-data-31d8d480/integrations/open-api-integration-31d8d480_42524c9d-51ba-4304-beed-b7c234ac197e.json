@@ -4,11 +4,11 @@
   "dataAnalyzer" : false,
   "replicas" : 1,
   "openApiUuid" : "20679c86-d95d-4400-bbf8-1e31efa6237c",
-  "currentProfileUuid" : null,
+  "currentProfileUuid" : "6bb2e3e3-9d2a-4353-837c-05a0a8a5adc6",
   "parameterGroupUuids" : [ ],
   "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
-    "id" : null,
+    "id" : 1,
     "camelRouteId" : "open-api-integration",
     "enabled" : true,
     "routeId" : 1,
@@ -17,11 +17,16 @@
       "nodeId" : "restApi: GET request",
       "description" : "GET request",
       "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
         "consumes" : "application/json",
         "endpoint" : "/api/v1/test",
+        "name" : "getRequest",
         "operationName" : "default",
         "produces" : "application/json",
-        "requestmethod" : "GET"
+        "requestmethod" : "GET",
+        "url" : ""
       },
       "_type" : "restApi",
       "isNotActive" : false
@@ -30,8 +35,16 @@
       "nodeId" : "setBody: add hello json to body",
       "description" : "add hello json to body",
       "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core feature",
         "expression" : "{\"message\": \"hello from open-api-31d8d480\", \"exchangeId\": \"${exchangeId}\"}",
-        "language" : "Simple"
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
       },
       "_type" : "setBody",
       "isNotActive" : false
@@ -40,10 +53,26 @@
       "nodeId" : "log: EIP log",
       "description" : "EIP log",
       "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core feature",
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "headers: ${headers}; body: ${body}"
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "log",
       "isNotActive" : false
@@ -59,6 +88,10 @@
   "id" : "42524c9d-51ba-4304-beed-b7c234ac197e",
   "name" : "open-api-integration-31d8d480",
   "description" : "Simple integration with an open-api example",
+  "absolutePath" : "/var/git-jetic/dd06abe8-2cbf-4c25-8cb6-d438132c1e3a/990395e3-dab3-4d10-b4f5-c87c52db60c4/folders/sample-git-data-31d8d480/integrations/open-api-integration-31d8d480_42524c9d-51ba-4304-beed-b7c234ac197e.json",
+  "fileName" : "open-api-integration-31d8d480_42524c9d-51ba-4304-beed-b7c234ac197e.json",
+  "folderName" : "sample-git-data-31d8d480",
+  "repoUuid" : "990395e3-dab3-4d10-b4f5-c87c52db60c4",
   "createdAt" : "2024-05-23T13:53:09.2799315",
   "updatedAt" : "2024-05-23T13:53:09.2799315",
   "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
